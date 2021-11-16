@@ -1,0 +1,9 @@
+kubernetes
+*.log
+*.env
+*.pem
+.idea
+.vscode
+.DS_Store
+*.git
+*.gitignore
