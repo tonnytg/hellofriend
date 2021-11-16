@@ -13,7 +13,12 @@ func StartAPI() {
 		io.WriteString(w, "Hello Friend!\n")
 	}
 
+	helloHandlerCloud := func(w http.ResponseWriter, r *http.Request) {
+		io.WriteString(w, "Hello Cloud Engineer!\n")
+	}
+
 	http.HandleFunc("/", helloHandler)
+	http.HandleFunc("/cloud", helloHandlerCloud)
 	log.Fatal(http.ListenAndServe(":8081", nil))
 
 }
