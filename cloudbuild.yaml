@@ -4,8 +4,6 @@ steps:
   - id: build-hello-image
     dir: hello-cloudbuild
     name: gcr.io/cloud-builders/docker
-    options:
-      logging: CLOUD_LOGGING_ONLY
     entrypoint: bash
     args:
       - -c
@@ -39,5 +37,9 @@ steps:
       - |
         helm template ./k8s/demo/ | kubeval
 
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 images:
   - gcr.io/${PROJECT_ID}/hello:${COMMIT_SHA}
+
