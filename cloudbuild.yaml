@@ -4,13 +4,13 @@ steps:
   - id: build-hello-image
     dir: hello-cloudbuild
     name: gcr.io/cloud-builders/docker
+    options:
+      logging: CLOUD_LOGGING_ONLY
     entrypoint: bash
     args:
       - -c
       - |
         docker image build --target build --tag hello:test .
-   env:
-     - CLOUD_LOGGING_STAGE: none
 
   - id: run-tests
     dir: hello-cloudbuild
