@@ -9,6 +9,8 @@ steps:
       - -c
       - |
         docker image build --target build --tag hello:test .
+   env:
+     - CLOUD_LOGGING_STAGE: none
 
   - id: run-tests
     dir: hello-cloudbuild
